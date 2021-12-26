@@ -54,6 +54,7 @@ class PackageGraph extends Map {
               {},
               currentNode.pkg.devDependencies,
               currentNode.pkg.optionalDependencies,
+              currentNode.pkg.peerDependencies,
               currentNode.pkg.dependencies
             );
 

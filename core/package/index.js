@@ -261,6 +261,11 @@ class Package {
     // first, try runtime dependencies
     let depCollection = this.dependencies;
 
+    // try peerDependencies if that didn't work
+    if (!depCollection || !depCollection[depName]) {
+      depCollection = this.peerDependencies;
+    }
+
     // try optionalDependencies if that didn't work
     if (!depCollection || !depCollection[depName]) {
       depCollection = this.optionalDependencies;

@@ -526,12 +526,12 @@ describe("BootstrapCommand", () => {
   });
 
   describe("with package peerDependencies", () => {
-    it("does not bootstrap peerDependencies", async () => {
+    it("bootstrap peerDependencies", async () => {
       const testDir = await initFixture("peer");
 
       await lernaBootstrap(testDir)();
 
-      expect(npmInstallDependencies).not.toHaveBeenCalled();
+      expect(npmInstallDependencies).toHaveBeenCalled();
     });
   });
 
